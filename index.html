@@ -24,12 +24,12 @@
             <div> 
                 <img src="images/ios-120.png" alt="" class="thumbnail center-block img-responsive img-thumbnail">                 
             </div>             
-            <div class="col-md-6 col-md-offset-3 text-center">
+            <div class="col-md-6 col-md-offset-3 text-center"> 
                 <div class="col-md-12"> 
-                    <a href="https://itunes.apple.com/app/id1027320462"> 
+                    <a href="https://itunes.apple.com/app/id1027320462" id="openAppStore"> 
                         <img src="images/store-ios.png" class="img-rounded">                         
                     </a>                     
-                </div>                                  
+                </div>                 
                 <!--  <div class="col-md-6"> 
                     <a href="http://"> 
                         <img src="images/store-android.png" class="img-rounded">                         
@@ -45,5 +45,18 @@
         <script src="js/bootstrap.min.js"></script>         
         <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->         
         <!-- <script src="assets/js/ie10-viewport-bug-workaround.js"></script>    -->         
+        <script type="text/javascript">
+            document.getElementById('openAppStore').onclick = function(e){
+                // 通过iframe的方式试图打开APP，如果能正常打开，会直接切换到APP，并自动阻止a标签的默认行为
+                // 否则打开a标签的href链接
+                var ifr = document.createElement('iframe');
+                ifr.src = 'wx5a2db0d6f46d7244://';
+                ifr.style.display = 'none';
+                document.body.appendChild(ifr);
+                window.setTimeout(function(){
+                    document.body.removeChild(ifr);
+                },3000)
+            };
+        </script>
     </body>     
 </html>
