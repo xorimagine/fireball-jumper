@@ -19,7 +19,7 @@
     </head>     
     <body class="body"> 
         <div class="container"> 
-            <h1 style="display: block;" class="text-center">Fireball Jumper 1</h1> 
+            <h1 style="display: block;" class="text-center">Fireball Jumper 2</h1> 
             <p class="text-center lead">Control your fireball with your magic power and don't fall in the pit.</p> 
             <div> 
                 <img src="images/ios-120.png" alt="" class="thumbnail center-block img-responsive img-thumbnail">                 
@@ -47,15 +47,17 @@
         <!-- <script src="assets/js/ie10-viewport-bug-workaround.js"></script>    -->         
         <script type="text/javascript">
             document.getElementById('openAppStore').onclick = function(e){
-                // 通过iframe的方式试图打开APP，如果能正常打开，会直接切换到APP，并自动阻止a标签的默认行为
-                // 否则打开a标签的href链接
-                var ifr = document.createElement('iframe');
-                ifr.src = 'wx5a2db0d6f46d7244://';
-                ifr.style.display = 'none';
-                document.body.appendChild(ifr);
                 window.setTimeout(function(){
-                    document.body.removeChild(ifr);
-                },3000)
+                    // 通过iframe的方式试图打开APP，如果能正常打开，会直接切换到APP，并自动阻止a标签的默认行为
+                    // 否则打开a标签的href链接
+                    var ifr = document.createElement('iframe');
+                    ifr.src = 'wx5a2db0d6f46d7244://';
+                    ifr.style.display = 'none';
+                    document.body.appendChild(ifr);
+                    window.setTimeout(function(){
+                        document.body.removeChild(ifr);
+                    },3000)
+                }, 200)
             };
         </script>
     </body>     
